@@ -1,0 +1,9 @@
+html, body { overflow-x: hidden; background-color: #f0f2f5; }
+.ant-layout { height: 100%; }
+.ant-layout-header { color:#fff; font-size: 26px; background-color: #fff; }
+.ant-layout-footer { text-align: center; }
+.ant-tooltip-inner { background-color: #fff; }
+.icon { background-color: #ff4d4f; color: #fff; }
+.ant-card-actions > li { margin: 0; }
+.ant-card-actions > li button { width: 100%; }
+.ant-select { width: 100%; }

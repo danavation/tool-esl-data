@@ -1,0 +1,8 @@
+node_modules/
+package-lock.json
+daemon/
+temp/
+configs-tool-esl-data/
+test.*
+*.csv
+config_*

@@ -1,0 +1,37 @@
+{
+  "name": "tool-esl-data",
+  "version": "0.0.4",
+  "description": "tool-esl-data",
+  "repository": "https://github.com/danavation/tool-esl-data",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --info-verbosity verbose --mode production",
+    "dev": "webpack --watch --info-verbosity verbose --mode development"
+  },
+  "author": "clin@danavation.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.8",
+    "@babel/preset-react": "^7.12.7",
+    "babel-loader": "^8.1.0",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^3.6.0",
+    "mini-css-extract-plugin": "^1.6.0",
+    "style-loader": "^1.3.0",
+    "webpack": "^5.40.0",
+    "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "antd": "^4.8.5",
+    "base64-arraybuffer": "^0.2.0",
+    "body-parser": "^1.19.0",
+    "convert-excel-to-json": "^1.7.0",
+    "express": "^4.17.1",
+    "googleapis": "^76.0.0",
+    "imap": "^0.8.19",
+    "lib-utilities": "https://github.com/danavation/lib-utilities.git",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "systeminformation": "^5.6.4"
+  }
+}
