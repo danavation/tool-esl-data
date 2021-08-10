@@ -18,10 +18,31 @@ const run = (object_config) => {
 	})
 
 	app.post('/items', (req, res) =>{
-		console.log('object_config', object_config)
-		let array = req.body
-		object_config.pipeline_middle(object_config, array)
-		object_config.pipeline_destination(object_config, array)
+		let array_src = req.body
+
+		/* filter and parse */
+		let array_src_0 = [] 
+		for(let i = 0, m = array_src.length; i < m; i++){
+			let item = array_src[i]
+			let item_0 = {}
+			Object.keys(config.schema).forEach(k=>{
+				switch(config.schema[k].type){
+					case 'string': item_0[k] = utilities.parse.to_string(item[k], ['']); break;
+					case 'float': item_0[k] = item[k] !== '' ? utilities.parse.to_float(item[k]) : 0.0; break;
+					case 'int': item_0[k] = item[k] !== '' ? utilities.parse.to_int(item[k]) : 0; break;
+					case 'timestamp': item_0[k] = utilities.parse.to_timestamp(item[k]); break;
+					case 'boolean': item_0[k] = utilities.parse.to_boolean(item[k]); break;
+				}
+			})
+			array_src_0.push(item_0)
+		}
+
+		/* pipeline middle */
+		config.pipeline_middle(array_src_0)
+		.then(
+			array=>config.pipeline_destination(array), 
+			err=>console.log('config.pipeline_middle err', err)
+		)
 		res.end()
 	})
 
