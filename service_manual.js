@@ -7,17 +7,17 @@ const csv_to_file = require('./utilities.js').csv_to_file
 
 const app = express()
 
-const run = (object_config) => {
+const run = (config) => {
 
 	app.use(express.static('public'))
 
 	app.use(body_parser.json())
 
 	app.get('/schema', (req, res)=>{
-		res.json(object_config.schema)
+		res.json(config.schema)
 	})
 
-	app.post('/items', (req, res) =>{
+	app.post('/items', (req, res)=>{
 		let array_src = req.body
 
 		/* filter and parse */
@@ -51,8 +51,8 @@ const run = (object_config) => {
 		)
 	})
 
-	app.listen(object_config.service.manual.port, object_config.service.manual.host, ()=>{
-		console.log(`http://${object_config.service.manual.host}:${object_config.service.manual.port}`)
+	app.listen(config.service.manual.port, config.service.manual.host, ()=>{
+		console.log(`http://${config.service.manual.host}:${config.service.manual.port}`)
 	})
 }
 
