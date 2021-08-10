@@ -40,10 +40,15 @@ const run = (object_config) => {
 		/* pipeline middle */
 		config.pipeline_middle(array_src_0)
 		.then(
-			array=>config.pipeline_destination(array), 
-			err=>console.log('config.pipeline_middle err', err)
+			array=>{
+				config.pipeline_destination(array)
+				res.end()
+			}, 
+			err=>{
+				console.log('config.pipeline_middle err', err)
+				res.end()
+			}
 		)
-		res.end()
 	})
 
 	app.listen(object_config.service.manual.port, object_config.service.manual.host, ()=>{
