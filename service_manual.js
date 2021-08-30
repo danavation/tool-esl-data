@@ -18,8 +18,7 @@ const run = (config) => {
 	})
 
 	app.get('/lightspeed', (req, res)=>{
-		console.log(req.query)
-		res.end()
+		res.json(req.query)
 	})
 
 	app.post('/items', (req, res)=>{
