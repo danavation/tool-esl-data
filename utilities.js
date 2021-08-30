@@ -1,5 +1,4 @@
 const fs = require('fs')
-const utilities = require('lib-utilities')
 
 /* [{... } ...] */
 const mapping_1d_array_to_csv = (obj_schema, char_delimiter, array_src) => {

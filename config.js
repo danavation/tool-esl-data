@@ -33,8 +33,8 @@ module.exports = {
 
 	service: {
 		
-		automatic: { enable: true, interval: 0 },
+		automatic: { enable: false, interval: 0 },
 
-		manual: { enable: false, host: '0.0.0.0', port: 80 }
+		manual: { enable: true, host: '0.0.0.0', port: 80 }
 	},
 }

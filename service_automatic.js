@@ -1,6 +1,6 @@
 const fs = require('fs')
 const exec = require('child_process').exec
-const utilities = require('lib-utilities')
+const utilities = require('js-utilities')
 const constants = require('./constants.js')
 
 const slack = (path, text) => {

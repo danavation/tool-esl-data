@@ -1,6 +1,6 @@
 const express = require('express')
 const body_parser = require('body-parser')
-const utilities = require('lib-utilities')
+const utilities = require('js-utilities')
 
 const mapping_1d_array_to_csv = require('./utilities.js').mapping_1d_array_to_csv
 const csv_to_file = require('./utilities.js').csv_to_file
@@ -15,6 +15,11 @@ const run = (config) => {
 
 	app.get('/schema', (req, res)=>{
 		res.json(config.schema)
+	})
+
+	app.get('/lightspeed', (req, res)=>{
+		console.log(req.query)
+		res.end()
 	})
 
 	app.post('/items', (req, res)=>{
