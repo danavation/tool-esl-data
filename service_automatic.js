@@ -38,6 +38,7 @@ const run = (
 					case 'int': item_0[k] = item[k] !== '' ? utilities.parse.to_int(item[k]) : 0; break;
 					case 'timestamp': item_0[k] = utilities.parse.to_timestamp(item[k]); break;
 					case 'boolean': item_0[k] = utilities.parse.to_boolean(item[k]); break;
+					case 'object': item_0[k] = item[k]; break;
 				}
 			})
 			array_src_0.push(item_0)
