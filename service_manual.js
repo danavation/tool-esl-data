@@ -17,7 +17,7 @@ const run = (config) => {
 		res.json(config.schema)
 	})
 
-	app.get('/lightspeed', (req, res)=>{
+	app.get('/redirect', (req, res)=>{
 		res.json(req.query)
 	})
 
