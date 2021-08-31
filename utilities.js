@@ -1,6 +1,26 @@
 const fs = require('fs')
 
 /* [{... } ...] */
+const mapping_1d_array_to_csv_0 = (char_delimiter, array_src) => {
+	return new Promise((res, rej)=>{
+		let csv = ''
+		let keys = Object.keys(array_src[0])
+		let cols = keys.length
+		keys.forEach((v, i) => {
+		  	csv += v + (i === (cols - 1) ? '\n' : char_delimiter)
+		})	
+
+		for(let i = 0, m = array_src.length; i < m; i++){
+			keys.forEach((key, index) => {
+				csv += array_src[i][key] + (index === (cols - 1) ? '\n' : char_delimiter)
+			})
+		}
+
+		res(csv)
+	})
+}
+
+/* [{... } ...] */
 const mapping_1d_array_to_csv = (obj_schema, char_delimiter, array_src) => {
 	return new Promise((res, rej)=>{
 		let csv = ''
@@ -8,13 +28,11 @@ const mapping_1d_array_to_csv = (obj_schema, char_delimiter, array_src) => {
 		Object.entries(obj_schema).forEach((v, i) => {
 		  	csv += (v[1]['as'] !== '' ? v[1]['as'] : v[0]) + (i === (cols - 1) ? '\n' : char_delimiter)
 		})	
-
 		for(let i = 0, m = array_src.length; i < m; i++){
 			Object.keys(obj_schema).forEach((key, index) => {
 				csv += array_src[i][key] + (index === (cols - 1) ? '\n' : char_delimiter)
 			})
 		}
-
 		res(csv)
 	})
 }
@@ -57,6 +75,7 @@ const buff_to_file = (str_path, buffer) => {
 
 module.exports = {
 	mapping_1d_array_to_csv,
+	mapping_1d_array_to_csv_0,
 	excelsheet_array_to_1d_array,
 	buff_to_file,
 }
